@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="character"
+            type="com.example.rickandmorty.model.CharactersItem"/>
+
+        <variable
+            name="imageUrl"
+            type="String" />
+    </data>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.characterdetail.CharacterDetailActivity">
+
+        <include layout="@layout/custom_action_bar" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/custum_actionbar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/characteImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="7dp"
+                    app:strokeColor="#FF777777"
+                    app:image="@{imageUrl}"
+                    app:strokeWidth="1dp" />
+
+                    <LinearLayout
+                        android:id="@+id/title_parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:orientation="vertical"
+                        android:layout_below="@id/characteImage">
+
+
+                        <TextView
+                            android:id="@+id/name"
+                            android:layout_width="wrap_content"
+                            android:layout_weight="16"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:text="@{character.name}"
+                            android:fontFamily="@font/metropolis_extra_bold"
+                            android:textSize="22sp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:layout_marginHorizontal="5dp">
+                            <ImageView
+                                android:id="@+id/statusColor"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginRight="2dp"
+                                android:layout_marginTop="2dp"
+                                android:layout_gravity="end"
+                                android:src="@drawable/ic_grey_circle" />
+                            <TextView
+                                android:id="@+id/status"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{character.status}"
+                                android:textSize="16sp"
+                                android:layout_marginBottom="2dp">
+
+                            </TextView>
+                        </LinearLayout>
+
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:background="@color/inputBackground"
+                            android:elevation="20dp"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginHorizontal="5dp"
+                                android:fontFamily="@font/metropolis_extra_light"
+                                android:text="Species: "
+                                android:gravity="right"
+                                android:textColor="@color/darkContentTextPrimary"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/species"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/metropolis_extra_light"
+                                android:gravity="left"
+                                android:text="@{character.species}"
+                                android:textSize="14sp" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:background="@color/inputBackground"
+                            android:elevation="20dp"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginHorizontal="5dp"
+                                android:fontFamily="@font/metropolis_extra_light"
+                                android:text="Gender: "
+                                android:gravity="right"
+                                android:textColor="@color/darkContentTextPrimary"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/gender"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/metropolis_extra_light"
+                                android:gravity="left"
+                                android:text="@{character.gender}"
+                                android:textSize="14sp" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:background="@color/inputBackground"
+                            android:elevation="20dp"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginHorizontal="5dp"
+                                android:fontFamily="@font/metropolis_extra_light"
+                                android:text="Last known location: "
+                                android:gravity="right"
+                                android:textColor="@color/darkContentTextPrimary"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/location"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/metropolis_extra_light"
+                                android:gravity="left"
+                                android:text="@{character.location.name}"
+                                android:textSize="14sp" />
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </ScrollView>
+
+
+
+
+</RelativeLayout>
+
+</layout>
